@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeChallenge
+{
+    internal class ClearanceSale 
+    {
+        public static void CalculateSalesTotal(string productName, string saleStatus, int price, int[] nosOfProduct)
+        {
+            Console.WriteLine($"\n{productName}");
+
+            if (saleStatus == "yes")
+            {
+                for (int i = 0; i < nosOfProduct.Length; i++)
+                {
+                    price = price - ((price * 7) / 100);
+                    Console.Write($"Day {i + 1} sales total : {price * nosOfProduct[i]} \n");
+                }
+            }
+
+            else
+            {
+                for (int i = 0; i < nosOfProduct.Length; i++)
+                {
+                    Console.Write($"Day {i + 1} sales total : {price * nosOfProduct[i]} \n");
+                }
+            }
+        }
+        
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the name of the product :");
+            string productName = Console.ReadLine();
+            Console.WriteLine("Enter the price of the product :");
+            int price = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Is the product on SALE (yes/no) :");
+            string saleStatus = Console.ReadLine();
+
+            int[] nosOfProduct = new int[3];
+            for(int i = 0; i < nosOfProduct.Length; i++)
+            {
+                Console.WriteLine($"Enter number of product sold in day {i+1} : ");
+                nosOfProduct[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            CalculateSalesTotal(productName, saleStatus, price, nosOfProduct);
+
+        }
+    }
+}
