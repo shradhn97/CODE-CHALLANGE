@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeChallenge
+{
+    internal class DisplayDesign
+    {
+        public static void headerMessage(string companyName)
+        {
+            Console.WriteLine($"\n{companyName} Employee Information");
+        }
+
+        public static void footerMessage(int year)
+        {
+            Console.WriteLine($"CopyRight {year} \nAll Rights Reserved.");
+        }
+        public static void entireMessage(string companyName, string employeeName, string projectName, int year)
+        {
+            headerMessage(companyName);
+            Console.WriteLine(employeeName);
+            Console.WriteLine(projectName);
+            footerMessage(year);
+        }
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the Company Name  :");
+            string companyName = Console.ReadLine();
+            Console.WriteLine("Enter the Employee Name  :");
+            string employeeName = Console.ReadLine();
+            Console.WriteLine("Enter the Project Name  :");
+            string projectName = Console.ReadLine();
+            Console.WriteLine("Enter the Year  :");
+            int year = Convert.ToInt32(Console.ReadLine());
+
+            entireMessage(companyName, employeeName, projectName, year);
+
+        }
+    }
+}
